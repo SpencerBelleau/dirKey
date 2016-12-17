@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{6EF7B5EA-BE47-47FF-B3F2-F3D9EF7287E4}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="dirKey\directoryPacker.cs">
+    <Files>
+      <File FileName="dirKey\interface.cs" Line="50" Column="39" />
+      <File FileName="dirKey\keyIterator.cs" Line="12" Column="5" />
+      <File FileName="dirKey\directoryHasher.cs" Line="22" Column="29" />
+      <File FileName="dirKey\directoryEncrypter.cs" Line="11" Column="3" />
+      <File FileName="dirKey\directoryPacker.cs" Line="171" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.dirKey PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
