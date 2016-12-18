@@ -14,6 +14,8 @@ namespace dirKey
 			String command = null;
 
 			bool debugLog = false;
+			bool decryptFile = false;
+
 			if (cliargs.Length == 4)
 			{
 				command = cliargs[1];
@@ -78,16 +80,37 @@ namespace dirKey
 			keyIterator key = new keyIterator(d.createHash());
 			//key.resetKey();
 
-			directoryPacker e = new directoryPacker(new System.IO.DirectoryInfo(encPath), debugLog);//new directoryEncrypter(new System.IO.DirectoryInfo(encPath), debugLog);
-			e.walkDirectory();
+			if (isFile(encPath))
+			{
+				decryptFile = true;
+			}
+
+
 
 			if (command.Equals("-e"))
 			{
+				Console.WriteLine("Encryption mode");
+				directoryPacker e = new directoryPacker(new System.IO.DirectoryInfo(encPath), debugLog);//new directoryEncrypter(new System.IO.DirectoryInfo(encPath), debugLog);
+				e.walkDirectory();
 				e.encrypt(key);
 			}
 			else if (command.Equals("-d"))
 			{
-				e.decrypt(key);
+				Console.WriteLine("Decryption mode");
+				if (!decryptFile)
+				{
+					Console.WriteLine("Directory Mode");
+					directoryPacker e = new directoryPacker(new System.IO.DirectoryInfo(encPath), debugLog);//new directoryEncrypter(new System.IO.DirectoryInfo(encPath), debugLog);
+					e.walkDirectory();
+					e.decrypt(key);
+				}
+				else
+				{
+					Console.WriteLine("File Mode");
+					directoryPacker e = new directoryPacker(new System.IO.DirectoryInfo(encPath), debugLog);
+					//no walk needed
+					e.decryptSingle(key, encPath);
+				}
 			}
 			else
 			{
@@ -95,6 +118,17 @@ namespace dirKey
 				Environment.Exit(-1);
 			}
 			Console.WriteLine("Finished!");
+		}
+
+		private static bool isFile(string s)
+		{
+			FileAttributes attr = File.GetAttributes(s);
+
+			//detect whether its a directory or file
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+				return false;
+			else
+				return true;
 		}
 	}
 }
