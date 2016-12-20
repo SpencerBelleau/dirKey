@@ -24,7 +24,7 @@ namespace dirKey
 
 		public void walkDirectory()
 		{
-			walkDirectory(this.root);
+			walkDirectory(root);
 		}
 
 		public void walkDirectory(System.IO.DirectoryInfo root)

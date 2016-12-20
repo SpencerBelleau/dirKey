@@ -36,7 +36,13 @@ namespace dirKey
 			incrementIndex();
 			return data[(data[index] + data[indexOffset]) % this.keyLength];
 		}
-
+		public void incrementBy(long amount)
+		{
+			for (long i = 0; i < amount; i++)
+			{
+				incrementIndex();
+			}
+		}
 		private void incrementIndex()
 		{
 			//RC4-like thing

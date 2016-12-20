@@ -112,6 +112,21 @@ namespace dirKey
 					e.decryptSingle(key, encPath);
 				}
 			}
+			else if (command.Equals("-l"))
+			{
+				Console.WriteLine("List Mode");
+				if (decryptFile)
+				{
+					//Console.WriteLine("Listing contents of package: {0}", encPath);
+					directoryPacker e = new directoryPacker(new System.IO.DirectoryInfo(encPath), debugLog);//new directoryEncrypter(new System.IO.DirectoryInfo(encPath), debugLog);
+					//e.walkDirectory();
+					e.listPackage(key, encPath);
+				}
+				else
+				{
+					Console.WriteLine("No Package Selected");
+				}
+			}
 			else
 			{
 				Console.WriteLine("Invalid command '{0}'",command);
