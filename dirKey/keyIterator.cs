@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
 
 namespace dirKey
 {
@@ -17,24 +15,23 @@ namespace dirKey
 		private int keyLength;
 		private int index;
 		private int indexOffset;
-		//private SHA1 checkSum = SHA1.Create();
 
 		public keyIterator(byte[] data)
 		{
 			this.data = new byte[data.Length];
 			data.CopyTo(this.data, 0);
 
-			this.originalData = new byte[data.Length];
-			data.CopyTo(this.originalData, 0);
+			originalData = new byte[data.Length];
+			data.CopyTo(originalData, 0);
 
-			this.keyLength = data.Length;
-			this.index = 0; //initialize
-			this.indexOffset = 0;
+			keyLength = data.Length;
+			index = 0; //initialize
+			indexOffset = 0;
 		}
 		public byte getKeyByte()
 		{
 			incrementIndex();
-			return data[(data[index] + data[indexOffset]) % this.keyLength];
+			return data[(data[index] + data[indexOffset]) % keyLength];
 		}
 		public void incrementBy(long amount)
 		{
@@ -46,8 +43,8 @@ namespace dirKey
 		private void incrementIndex()
 		{
 			//RC4-like thing
-			index = (index + 1) % this.keyLength;
-			indexOffset = (indexOffset + data[index]) % this.keyLength;
+			index = (index + 1) % keyLength;
+			indexOffset = (indexOffset + data[index]) % keyLength;
 			//swap
 			byte tmp = data[indexOffset];
 			data[indexOffset] = data[index];
@@ -60,7 +57,7 @@ namespace dirKey
 			List<byte> output = new List<byte>();
 			for (int i = 0; i < input.Length; i++)
 			{
-				output.Add( (byte)(input[i] ^ getKeyByte()) );
+				output.Add((byte)(input[i] ^ getKeyByte()));
 			}
 			return output.ToArray();
 		}
@@ -68,10 +65,10 @@ namespace dirKey
 		//Called after encryption is finished
 		public void resetKey()
 		{
-			this.originalData.CopyTo(this.data, 0);
-			this.keyLength = data.Length;
-			this.index = 0;
-			this.indexOffset = 0;
+			originalData.CopyTo(data, 0);
+			keyLength = data.Length;
+			index = 0;
+			indexOffset = 0;
 		}
 	}
 }

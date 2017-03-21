@@ -2,3 +2,7 @@ C:\Users\Spencer\Documents\Projects\dirKey\dirKey\bin\Debug\dirKey.exe
 C:\Users\Spencer\Documents\Projects\dirKey\dirKey\bin\Debug\dirKey.pdb
 C:\Users\Spencer\Documents\Projects\dirKey\dirKey\obj\x86\Debug\dirKey.exe
 C:\Users\Spencer\Documents\Projects\dirKey\dirKey\obj\x86\Debug\dirKey.pdb
+C:\Users\Spencer\Documents\dirKey\dirKey\bin\Debug\dirKey.exe
+C:\Users\Spencer\Documents\dirKey\dirKey\bin\Debug\dirKey.pdb
+C:\Users\Spencer\Documents\dirKey\dirKey\obj\x86\Debug\dirKey.exe
+C:\Users\Spencer\Documents\dirKey\dirKey\obj\x86\Debug\dirKey.pdb

@@ -5,69 +5,18 @@ using System.Security.Cryptography;
 
 namespace dirKey
 {
-	public class directoryHasher
+	public class directoryHasher : directoryBase
 	{
 		private SHA512 key = SHA512.Create();
-		private List<String> fullNames = new List<string>();
-		private List<String> fullDirs = new List<string>();
-		private System.IO.DirectoryInfo root;
 		public directoryHasher()
 		{
 			
 		}
 
-		public directoryHasher(System.IO.DirectoryInfo root)
+		public directoryHasher(DirectoryInfo root)
 		{
 			this.root = root;
 			walkDirectory(this.root);
-		}
-
-		public void walkDirectory()
-		{
-			walkDirectory(root);
-		}
-
-		public void walkDirectory(System.IO.DirectoryInfo root)
-		{
-			System.IO.FileInfo[] fileNames = null;
-			System.IO.DirectoryInfo[] subDirs = null;
-
-			try
-			{
-				fileNames = root.GetFiles("*");
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
-
-			if (fileNames != null)
-			{
-				foreach (System.IO.FileInfo name in fileNames)
-				{
-					//Log it
-					//Console.WriteLine(name.FullName);
-					fullNames.Add(name.FullName);
-				}
-
-				subDirs = root.GetDirectories();
-
-				foreach (System.IO.DirectoryInfo subDir in subDirs)
-				{
-					fullDirs.Add(subDir.FullName);
-					walkDirectory(subDir);
-				}
-			}
-		}
-
-		public List<String> getFileNames()
-		{
-			return fullNames;
-		}
-
-		public List<String> getDirNames()
-		{
-			return fullDirs;
 		}
 
 		public byte[] createHash()

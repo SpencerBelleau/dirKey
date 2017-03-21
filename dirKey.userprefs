@@ -4,13 +4,15 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="dirKey\keyIterator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dirKey\directoryBase.cs">
     <Files>
-      <File FileName="dirKey\interface.cs" Line="50" Column="6" />
-      <File FileName="dirKey\keyIterator.cs" Line="12" Column="5" />
-      <File FileName="dirKey\directoryHasher.cs" Line="22" Column="29" />
-      <File FileName="dirKey\directoryEncrypter.cs" Line="11" Column="3" />
-      <File FileName="dirKey\directoryPacker.cs" Line="171" Column="12" />
+      <File FileName="dirKey\interface.cs" Line="152" Column="93" />
+      <File FileName="dirKey\keyIterator.cs" Line="17" Column="27" />
+      <File FileName="dirKey\directoryHasher.cs" Line="7" Column="2" />
+      <File FileName="dirKey\directoryPacker.cs" Line="180" Column="2" />
+      <File FileName="dirKey\directoryUnpacker.cs" Line="15" Column="3" />
+      <File FileName="dirKey\packageManipulator.cs" Line="336" Column="36" />
+      <File FileName="dirKey\directoryBase.cs" Line="94" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.dirKey PreferredExecutionTarget="MonoDevelop.Default" />

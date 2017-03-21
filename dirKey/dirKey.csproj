@@ -36,8 +36,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="directoryHasher.cs" />
     <Compile Include="keyIterator.cs" />
-    <Compile Include="directoryEncrypter.cs" />
     <Compile Include="directoryPacker.cs" />
+    <Compile Include="directoryUnpacker.cs" />
+    <Compile Include="directoryBase.cs" />
+    <Compile Include="packageManipulator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
